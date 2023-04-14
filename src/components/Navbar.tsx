@@ -18,10 +18,28 @@ const Navbar = () => {
           Home
         </Link>
         <Link
-          href={'/about'}
-          className={router.pathname === '/about' ? styles.active : ''}
+          href={'/trending'}
+          className={router.pathname === '/trending' ? styles.active : ''}
         >
-          About
+          Trending
+        </Link>
+        <Link
+          href={'/top-rate'}
+          className={router.pathname === '/top-rate' ? styles.active : ''}
+        >
+          Top Rate
+        </Link>
+        <Link
+          href={'/popular'}
+          className={router.pathname === '/popular' ? styles.active : ''}
+        >
+          Popular
+        </Link>
+        <Link
+          href={'/search'}
+          className={router.pathname === '/search' ? styles.active : ''}
+        >
+          Search
         </Link>
       </div>
     </nav>

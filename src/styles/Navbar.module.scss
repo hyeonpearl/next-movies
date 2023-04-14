@@ -24,10 +24,8 @@
     text-decoration: none;
     color: #222;
   }
-  a:hover {
-    color: skyblue;
-  }
+  a:hover,
   .active {
-    color: tomato;
+    color: skyblue;
   }
 }
