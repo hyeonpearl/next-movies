@@ -1,6 +1,6 @@
 import Seo from '@/components/Seo';
 
-const popular = () => {
+const Popular = () => {
   return (
     <>
       <Seo title={'Popular'} />
@@ -11,4 +11,4 @@ const popular = () => {
   );
 };
 
-export default popular;
+export default Popular;

@@ -1,6 +1,6 @@
 import Seo from '@/components/Seo';
 
-const topRate = () => {
+const TopRate = () => {
   return (
     <>
       <Seo title={'Top Rate'} />
@@ -11,4 +11,4 @@ const topRate = () => {
   );
 };
 
-export default topRate;
+export default TopRate;

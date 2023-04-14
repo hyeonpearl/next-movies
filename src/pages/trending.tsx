@@ -1,6 +1,6 @@
 import Seo from '@/components/Seo';
 
-const trending = () => {
+const Trending = () => {
   return (
     <>
       <Seo title={'Trending'} />
@@ -11,4 +11,4 @@ const trending = () => {
   );
 };
 
-export default trending;
+export default Trending;

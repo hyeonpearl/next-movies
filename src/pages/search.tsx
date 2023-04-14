@@ -1,6 +1,6 @@
 import Seo from '@/components/Seo';
 
-const search = () => {
+const Search = () => {
   return (
     <>
       <Seo title={'Search'} />
@@ -11,4 +11,4 @@ const search = () => {
   );
 };
 
-export default search;
+export default Search;
