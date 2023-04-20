@@ -17,30 +17,6 @@ const Navbar = () => {
         >
           Home
         </Link>
-        <Link
-          href={'/trending'}
-          className={router.pathname === '/trending' ? styles.active : ''}
-        >
-          Trending
-        </Link>
-        <Link
-          href={'/top-rate'}
-          className={router.pathname === '/top-rate' ? styles.active : ''}
-        >
-          Top Rate
-        </Link>
-        <Link
-          href={'/popular'}
-          className={router.pathname === '/popular' ? styles.active : ''}
-        >
-          Popular
-        </Link>
-        <Link
-          href={'/search'}
-          className={router.pathname === '/search' ? styles.active : ''}
-        >
-          Search
-        </Link>
       </div>
     </nav>
   );

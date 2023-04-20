@@ -1,42 +1,47 @@
+import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
 import Seo from '@/components/Seo';
-import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+
+import styles from '@/styles/Home.module.scss';
 
 interface Movie {
   id: number;
+  backdrop_path: string;
   original_title: string;
+  overview: string;
+  poster_path: string;
+  title: string;
+  vote_average: number;
+  genre_ids: [number];
 }
 
-export default function Home() {
-  const [movies, setMovies] = useState<Movie>();
-
-  const router = useRouter();
-
-  useEffect(() => {
-    fetch(`/api/movies`)
-      .then(res => res.json())
-      .then(data => setMovies(data.results));
-  }, []);
-
+export default function Home({
+  results,
+}: InferGetServerSidePropsType<GetServerSideProps>) {
   return (
     <>
       <Seo title={'Home'} />
-      <main>
-        {!movies && <h4>Loading...</h4>}
-        {movies?.map(movie => (
-          <div
-            key={movie.id}
-            onClick={() => {
-              router.push({
-                pathname: 'movie/[id]',
-                query: { id: movie.id },
-              });
-            }}
-          >
+      <main className={styles.container}>
+        {results?.map((movie: Movie) => (
+          <div key={movie.id} className={styles.movie}>
+            <img
+              src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+              alt='thumbnail'
+            />
             <h4>{movie.original_title}</h4>
           </div>
         ))}
       </main>
     </>
   );
+}
+
+export async function getServerSideProps({}: GetServerSideProps) {
+  const { results } = await (
+    await fetch(`http://localhost:3000/api/movies`)
+  ).json();
+  return {
+    props: {
+      results,
+    },
+  };
 }
