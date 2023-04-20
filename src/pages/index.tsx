@@ -1,6 +1,7 @@
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
-import Seo from '@/components/Seo';
+import Link from 'next/link';
 
+import Seo from '@/components/Seo';
 import styles from '@/styles/Home.module.scss';
 
 interface Movie {
@@ -20,15 +21,20 @@ export default function Home({
   return (
     <>
       <Seo title={'Home'} />
+
       <main className={styles.container}>
         {results?.map((movie: Movie) => (
-          <div key={movie.id} className={styles.movie}>
+          <Link
+            key={movie.id}
+            className={styles.movie}
+            href={`/movies/${movie.original_title}/${movie.id}`}
+          >
             <img
               src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
               alt='thumbnail'
             />
             <h4>{movie.original_title}</h4>
-          </div>
+          </Link>
         ))}
       </main>
     </>
